@@ -8,6 +8,10 @@ module.exports = function (grunt) {
             dist: {
                 src: ['index.js'],
                 dest: 'src/xodo.min.js'
+            },
+            docs: {
+                src: ['index.js'],
+                dest: 'docs/xodo.min.js'
             }
         },
         jshint: {
