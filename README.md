@@ -1,4 +1,4 @@
-#Xodo
+# Xodo
 #### My personal javascript library
 In 2013 I worked on a project where it was necessary to have a javascript library with specific functionalities (neither more nor less), it needed to be crossbrowser and also work well in different browser versions. There were other requirements the library needed to keep, such as being light and fast. Obviously jQuery was my first choice.
 
