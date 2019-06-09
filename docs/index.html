@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Xodo Demo</title>
+    <script type="text/javascript" src="../src/xodo.min.js"></script>
+    <script type="text/javascript">
+        var easing = 'easeInOut';
+
+        xdo(window).onload(function () {
+            var bgArr = new Array("#DFDFFF", "#FFFFBF", "#80FF80", "#EAEAFF", "#C9FFA8", "#F7F7F7", "#FF00FF", "#DDDD00");
+            var elements = ['teste1', 'teste3'];
+
+            xdo('*').bindEvent('click', function () {
+                bgColor(bgArr[Math.floor(Math.random() * bgArr.length)]);
+            });
+
+            xdo.Xodo.each(elements, function (k, obj) {
+                var objelm = document.getElementById(obj);
+                xdo('#' + obj).bindEvent("mouseover", function () {
+                    if (!xdo('#' + obj).hasClass('opening')) {
+                        xdo('#' + obj).addClass('opening');
+                        xdo.Xodo.xdoMatrix(objelm, 'width', 150, 300,
+                                easing, 200,
+                                function () {
+                                    xdo('#' + obj).removeClass('opening');
+                                    new close(objelm, 'width');
+                                }
+                        );
+                    }
+                });
+            });
+            xdo(".boxteste2").remove();
+
+        });
+
+        xdo(window).resize(function () {
+            console.log('resizing...')
+        });
+
+        function bgColor(color) {
+            xdo('body').css({
+                background: color
+            });
+        }
+
+        function close(elem, style) {
+            var k = 1;
+            var ival = window.setInterval(function () {
+                if (k == 240) {
+                    xdo.Xodo.xdoMatrix(elem, style, 300, 150,
+                            easing, 200,
+                            function () {
+                                xdo(elem).removeClass('opening');
+                            }
+                    );
+                    clearInterval(ival)
+                }
+                k++;
+            }, 1);
+        }
+    </script>
+
+    <style type="text/css">
+        *, html, body {margin: 0px;padding: 0px;color: #fff;}
+
+        * {
+            -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+            -moz-user-select: none; /* mozilla browsers */
+            -khtml-user-select: none; /* webkit (konqueror) browsers */
+            -ms-user-select: none; /* IE10+ */
+        }
+
+        body {overflow-x: hidden;background: #f5f5f5;font-size: 12px;}
+
+        .box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #teste1 {
+            left: 0;
+            top: 30%;
+            background: red;
+        }
+
+        #teste3 {
+            right: 0;
+            top: 30%;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="teste1" class="box">1</div>
+<div id="teste3" class="box">3</div>
+
+<div class="boxteste">
+	<div id="teste99" class="boxteste2">99</div>
+	<div id="teste999" class="boxteste2">99</div>
+	<div id="teste9999" class="boxteste2">99</div>
+	<p>
+		Paragrafo
+	</p>
+</div>
+
+</body>
+</html>
