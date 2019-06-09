@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             },
             docs: {
                 src: ['dist/xodo.js'],
-                dest: 'dist/xodo.min.js'
+                dest: 'docs/xodo.min.js'
             }
         },
         jshint: {
