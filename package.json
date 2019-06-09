@@ -23,5 +23,10 @@
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-concat": "~0.3.0"
+  },
+  "dependencies": {
+    "concat": "^1.0.3",
+    "grunt-minified": "0.0.6",
+    "minified": "^1.0.1"
   }
 }

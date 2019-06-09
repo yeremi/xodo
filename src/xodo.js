@@ -39,7 +39,7 @@
     };
     xdo.Xodo = xdo.prototype = {
         init: function (selector) {
-            var elements = new Sizzle(selector);
+            var elements = new Sizzl(selector);
             for (var i = 0; i < elements.length; i++) {
                 this[i] = elements[i];
             }
@@ -143,7 +143,7 @@
     };
 
     xdo.Xodo.find = xdo.prototype = function (selector) {
-        return new Sizzle(selector);
+        return new Sizzl(selector);
     };
 
     xdo.Xodo.trim = xdo.prototype = function (str) {
@@ -383,7 +383,7 @@
     xdo.Xodo.contains = xdo.prototype = function (context, elem) {
         if ((context.ownerDocument || context) !== document) {
             //setDocument(context);
-            new Sizzle(context);
+            new Sizzl(context);
         }
         return xdo.Xodo.contains(context, elem);
     };
